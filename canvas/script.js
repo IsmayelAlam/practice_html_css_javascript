@@ -28,7 +28,7 @@ colors.addEventListener("click", (e) => {
 
      // add the active class
      e.target.classList.add("color_active");
-     if (e.target === rainbowColor) custom = !custom;
+     if (e.target === rainbowColor) custom = true;
      
      // change the stroke color to the selected color from the background color
      const bgColor = window.getComputedStyle(e.target ,null).getPropertyValue('background-color');
@@ -47,7 +47,7 @@ lineSize.addEventListener("input", (e) => {
 // custom color input
 colorI.addEventListener("input", (e) => {
      ctx.strokeStyle = e.target.value;
-     custom = !custom;
+     custom = false;
 })
 
 // main drawing function
