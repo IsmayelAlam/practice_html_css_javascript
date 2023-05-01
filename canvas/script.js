@@ -20,7 +20,9 @@ ctx.lineWidth = 5;
 // initial variables
 let isDrawing = false;
 let custom = false;
-let lastX = lastY = hue = 0;
+let lastX = 0;
+let lastY = 0;
+let hue = 0;
 let preColor = blackColor;
 
 
