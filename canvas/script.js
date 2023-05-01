@@ -17,8 +17,8 @@ ctx.lineWidth = 5;
 
 
 let isDrawing = false;
+let custom = false;
 let lastX = lastY = hue = 0;
-let direction = true;
 let preColor = blackColor;
 
 
@@ -28,6 +28,7 @@ colors.addEventListener("click", (e) => {
 
      // add the active class
      e.target.classList.add("color_active");
+     if (e.target === rainbowColor) custom = !custom;
      
      // change the stroke color to the selected color from the background color
      const bgColor = window.getComputedStyle(e.target ,null).getPropertyValue('background-color');
@@ -46,13 +47,14 @@ lineSize.addEventListener("input", (e) => {
 // custom color input
 colorI.addEventListener("input", (e) => {
      ctx.strokeStyle = e.target.value;
+     custom = !custom;
 })
 
 // main drawing function
 function draw(e) {
      if(!isDrawing) return;
 
-     if (preColor === rainbowColor) ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+     if (custom) ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     
      ctx.beginPath();
      ctx.moveTo(lastX, lastY);
