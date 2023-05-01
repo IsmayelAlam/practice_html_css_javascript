@@ -25,6 +25,7 @@ let preColor = blackColor;
 // color changing function
 colors.addEventListener("click", (e) => {
      if(e.target.className === "colors") return;
+     custom = false;
 
      // add the active class
      e.target.classList.add("color_active");

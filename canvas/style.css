@@ -40,16 +40,18 @@ body{
 
 .colors > *{
      height: 5rem;
-     border: 3px solid rgba(0, 0, 0, 0);
+     border: 3px solid transparent;
      width: 5rem;
      background-color: black;
      border-radius: 100px;
      box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+     transition: all 200ms;
      
 }
 .colors > *:hover{
      border: 3px solid rgba(0, 0, 0, 0.25);
      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5);
+     transform: translateY(2px);
 }
 
 .color-black{ 
@@ -80,6 +82,7 @@ body{
 
 .color_active{
      border: 3px solid rgba(117, 117, 117, 0.75);
+     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5);
 }
 
 .inputs{
