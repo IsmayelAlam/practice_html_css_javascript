@@ -15,7 +15,7 @@ ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 5;
 
-
+// initial variables
 let isDrawing = false;
 let custom = false;
 let lastX = lastY = hue = 0;
