@@ -5,7 +5,7 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="style.css" rel="stylesheet">
-     <script href="script.js"></script>
+     <script defer src="script.js"></script>
      <title>Drawing Canvas</title>
 </head>
 <body>
@@ -13,8 +13,8 @@
      <main class="sidebar">
           <section class="colors">
                <div class="color-white"></div>
-               <div class="color-black"></div>
-               <div class="color-red color_active"></div>
+               <div class="color-black color_active"></div>
+               <div class="color-red"></div>
                <div class="color-green"></div>
                <div class="color-blue"></div>
                <div class="color-yellow"></div>
@@ -36,8 +36,11 @@
                <div class="color-rainbow"></div>               
           </section>
           <section class="inputs">
-               <input type="color" class="input_color">
-               <input type="range" class="input_line" min="0" max="100">
+               <figure>
+                    <input type="color" class="input_color" id="input_color" value="#bada55">
+                    <label class="input_text" for="input_color">Custom Color</label>
+               </figure>
+               <input type="range" class="input_line" min="1" max="50" value="5">
           </section>
      </main>
 </body>
