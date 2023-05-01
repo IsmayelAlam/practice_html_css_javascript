@@ -34,6 +34,9 @@ colors.addEventListener("click", (e) => {
      // change the stroke color to the selected color from the background color
      const bgColor = window.getComputedStyle(e.target ,null).getPropertyValue('background-color');
      ctx.strokeStyle = bgColor;
+
+     e.target.style.transform = 'translateY(2px)';
+     preColor.style.transform = 'translateY(-2px)';
      
      // store the current target in memory
      if(preColor) preColor.classList.remove("color_active");
