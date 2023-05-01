@@ -35,6 +35,7 @@ colors.addEventListener("click", (e) => {
      const bgColor = window.getComputedStyle(e.target ,null).getPropertyValue('background-color');
      ctx.strokeStyle = bgColor;
 
+     // add Animation
      e.target.style.transform = 'translateY(2px)';
      preColor.style.transform = 'translateY(-2px)';
      
