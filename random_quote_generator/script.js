@@ -21,8 +21,6 @@ async function getApiData() {
     const imgData = await fetch(imageUrl);
     const getImg = await imgData.json();
 
-    // console.log(getQuote, getImg);
-
     body.style.backgroundImage = `linear-gradient(to right bottom, rgba(128, 0, 128, 0.5), rgba(255, 0, 0, 0.5)), url(${getImg.urls.full})`;
 
     quote.innerHTML = `<h1 class="main_quote">${getQuote[0].quote}<p class="writer">&ndash; ${getQuote[0].author}</p></h1>`;
