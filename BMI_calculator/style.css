@@ -17,6 +17,8 @@ body {
   margin: 0;
 }
 
+/* input section */
+
 .main_section {
   width: 80%;
   height: 75%;
@@ -25,7 +27,7 @@ body {
   box-shadow: 0 0 5rem rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .heading {
@@ -58,64 +60,96 @@ body {
   gap: 1rem;
 }
 
+input {
+  border: none;
+  border-bottom: 2px solid rgb(43, 174, 226);
+  background: none;
+  font-size: 2rem;
+  outline: none;
+}
+
+.inputs__input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(43, 174, 226);
+}
+
 .btn {
   border: none;
   border-radius: 50px;
-  padding: 1rem 2rem;
-  margin: 5rem auto;
+  padding: 1rem 2.5rem;
+  margin-top: 5rem;
+  font-size: 2.5rem;
+  color: whitesmoke;
+  text-transform: capitalize;
+  cursor: pointer;
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(55, 195, 250),
+    rgb(22, 90, 117)
+  );
 }
+
+/* Results section */
 
 .results {
   width: 50%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .circle__main {
   height: 75%;
   width: 75%;
   border: 5px solid white;
-  background-color: whitesmoke;
+  background-color: cornflowerblue;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  margin: auto;
-  margin-top: 7.5rem;
 }
 
-.wave {
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg)
-    repeat-x;
+.circle__main > * {
+  width: 250%;
+  height: 250%;
   position: absolute;
-  top: 65%;
-  width: 640rem;
-  height: 25rem;
-  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-  transform: translate3d(0, 0, 0);
+  border-radius: 50rem;
+  left: -75%;
+  top: -200%;
 }
 
-.wave:nth-of-type(2) {
-  top: 68%;
-  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
-    swell 7s ease -1.25s infinite;
-  opacity: 1;
+.wave_1 {
+  z-index: 1;
+  background-color: rgba(245, 245, 245, 0.8);
+  animation: rotate 8.5s linear infinite;
+}
+.wave_2 {
+  z-index: 2;
+  background-color: rgba(245, 245, 245, 0.5);
+  animation: rotate 8.75s linear infinite;
+}
+.wave_3 {
+  z-index: 3;
+  background-color: rgba(245, 245, 245, 0.25);
+  animation: rotate 8.25s linear infinite;
 }
 
-@keyframes wave {
+@keyframes rotate {
   0% {
-    margin-left: 0;
+    transform: rotate(0deg);
   }
   100% {
-    margin-left: -160rem;
+    transform: rotate(360deg);
   }
 }
 
-@keyframes swell {
-  0%,
-  100% {
-    transform: translate3d(0, -25px, 0);
-  }
-  50% {
-    transform: translate3d(0, 5px, 0);
-  }
+.test_result {
+  position: absolute;
+  z-index: 10;
+  font-size: 15em;
+  text-shadow: 0 0 2rem rgb(221, 221, 221);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }

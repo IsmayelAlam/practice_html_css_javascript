@@ -13,25 +13,47 @@
         <h1 class="heading">BIM calculator</h1>
         <div class="inputs__layout">
           <label for="weight" class="inputs__text">Weight</label>
-          <input type="number" id="weight" class="weight" required />
-          <select name="weight_type" id="weight" class="inputs__text">
+          <input
+            type="number"
+            id="weight"
+            class="weight"
+            placeholder="Enter weight"
+            required
+          />
+          <select
+            name="weight_type"
+            id="weight"
+            class="inputs__text inputs__input"
+          >
             <option value="kg" name="weight">kg</option>
             <option value="lb" name="weight">lb</option>
           </select>
           <label for="Height" class="inputs__text">Height</label>
-          <input type="number" id="Height" class="height" required />
-          <select name="height_type" id="height" class="inputs__text">
+          <input
+            type="number"
+            id="Height"
+            class="height"
+            placeholder="Enter height"
+            required
+          />
+          <select
+            name="height_type"
+            id="height"
+            class="inputs__text inputs__input"
+          >
             <option value="cm" name="weight">cm</option>
             <option value="inches" name="weight">inches.feet</option>
           </select>
         </div>
-        <button class="btn inputs__text" type="submit">calculate</button>
+        <button class="btn" type="submit">calculate</button>
       </form>
       <div class="results">
         <div class="circle__main">
-          <div class="wave"></div>
-          <div class="wave"></div>
+          <div class="wave_1"></div>
+          <div class="wave_2"></div>
+          <div class="wave_3"></div>
         </div>
+        <div class="test_result">50</div>
       </div>
     </main>
   </body>
