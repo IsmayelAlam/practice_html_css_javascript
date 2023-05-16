@@ -25,6 +25,7 @@ inputTypeHeight.addEventListener("change", (e) => {
 });
 
 calculate.addEventListener("click", (e) => {
+  // default
   e.preventDefault();
   if (!inputHeight.value || !inputTypeWeight.value) return;
 
