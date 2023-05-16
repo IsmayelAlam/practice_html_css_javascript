@@ -26,6 +26,7 @@ inputTypeHeight.addEventListener("change", (e) => {
 
 calculate.addEventListener("click", (e) => {
   e.preventDefault();
+  if (!inputHeight.value || !inputTypeWeight.value) return;
 
   //   filter inputs
   let height = +inputHeight.value;
