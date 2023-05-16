@@ -34,7 +34,7 @@ body {
   text-align: center;
   font-size: 3.5rem;
   font-weight: 500;
-  margin: 0 auto 10rem;
+  margin: 0 auto 15rem;
 }
 
 .inputs {
@@ -90,6 +90,16 @@ input {
   );
 }
 
+.table {
+  table-layout: fixed;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 1.6rem;
+  margin: 5rem 0 0;
+  gap: 0.25rem;
+  background-color: transparent;
+}
+
 /* Results section */
 
 .results {
@@ -104,7 +114,10 @@ input {
   height: 75%;
   width: 75%;
   border: 5px solid white;
-  background-color: cornflowerblue;
+  background-color: rgba(226, 223, 43); /* > 18.4 */
+  background-color: rgba(64, 226, 43); /* 18.5 - 24.9 */
+  background-color: rgb(228, 124, 28); /* 25.0 - 39.9 */
+  background-color: rgba(226, 43, 43); /* < 40 */
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   overflow: hidden;
@@ -148,8 +161,12 @@ input {
 .test_result {
   position: absolute;
   z-index: 10;
+  text-align: center;
   font-size: 15em;
-  text-shadow: 0 0 2rem rgb(221, 221, 221);
+  /* text-shadow: 0 0 2rem rgb(221, 221, 221); */
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: rgb(255, 255, 255);
+}
+.results__text {
+  font-size: 5rem;
 }

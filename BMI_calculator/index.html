@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BMI calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
   </head>
   <body>
     <main class="main_section">
@@ -20,40 +21,36 @@
             placeholder="Enter weight"
             required
           />
-          <select
-            name="weight_type"
-            id="weight"
-            class="inputs__text inputs__input"
-          >
+          <select name="weight_type" class="inputs__text inputs__input">
             <option value="kg" name="weight">kg</option>
             <option value="lb" name="weight">lb</option>
           </select>
           <label for="Height" class="inputs__text">Height</label>
           <input
             type="number"
-            id="Height"
+            id="height"
             class="height"
             placeholder="Enter height"
             required
           />
-          <select
-            name="height_type"
-            id="height"
-            class="inputs__text inputs__input"
-          >
+          <select name="height_type" class="inputs__text inputs__input">
             <option value="cm" name="weight">cm</option>
             <option value="inches" name="weight">inches.feet</option>
           </select>
         </div>
         <button class="btn" type="submit">calculate</button>
       </form>
+
       <div class="results">
         <div class="circle__main">
           <div class="wave_1"></div>
           <div class="wave_2"></div>
           <div class="wave_3"></div>
         </div>
-        <div class="test_result">50</div>
+        <div class="test_result">
+          <h2 class="bmi_result">20</h2>
+          <p class="results__text">Normal</p>
+        </div>
       </div>
     </main>
   </body>
