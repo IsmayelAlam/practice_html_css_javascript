@@ -24,10 +24,10 @@ body {
   height: 75%;
   margin: auto;
   background-color: whitesmoke;
-  box-shadow: 0 0 5rem rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
   display: flex;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .heading {
@@ -68,7 +68,8 @@ input {
   outline: none;
 }
 
-.inputs__input {
+.inputs__type {
+  outline: none;
   border: none;
   background-color: transparent;
   border-bottom: 2px solid rgb(43, 174, 226);
@@ -90,16 +91,6 @@ input {
   );
 }
 
-.table {
-  table-layout: fixed;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  font-size: 1.6rem;
-  margin: 5rem 0 0;
-  gap: 0.25rem;
-  background-color: transparent;
-}
-
 /* Results section */
 
 .results {
@@ -114,17 +105,14 @@ input {
   height: 75%;
   width: 75%;
   border: 5px solid white;
-  background-color: rgba(226, 223, 43); /* > 18.4 */
-  background-color: rgba(64, 226, 43); /* 18.5 - 24.9 */
-  background-color: rgb(228, 124, 28); /* 25.0 - 39.9 */
-  background-color: rgba(226, 43, 43); /* < 40 */
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   overflow: hidden;
   position: relative;
+  background-color: rgba(32, 201, 173, 0.5);
 }
 
-.circle__main > * {
+.wave {
   width: 250%;
   height: 250%;
   position: absolute;
@@ -137,16 +125,19 @@ input {
   z-index: 1;
   background-color: rgba(245, 245, 245, 0.8);
   animation: rotate 8.5s linear infinite;
+  transform: rotate(150deg);
 }
 .wave_2 {
   z-index: 2;
   background-color: rgba(245, 245, 245, 0.5);
   animation: rotate 8.75s linear infinite;
+  transform: rotate(100deg);
 }
 .wave_3 {
   z-index: 3;
   background-color: rgba(245, 245, 245, 0.25);
   animation: rotate 8.25s linear infinite;
+  transform: rotate(45deg);
 }
 
 @keyframes rotate {
@@ -162,8 +153,8 @@ input {
   position: absolute;
   z-index: 10;
   text-align: center;
-  font-size: 15em;
-  /* text-shadow: 0 0 2rem rgb(221, 221, 221); */
+  font-size: 12.5em;
+  text-shadow: 0 0 2rem rgba(129, 129, 129, 0.2);
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(255, 255, 255);
 }

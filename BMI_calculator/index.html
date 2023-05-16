@@ -21,7 +21,10 @@
             placeholder="Enter weight"
             required
           />
-          <select name="weight_type" class="inputs__text inputs__input">
+          <select
+            name="weight_type"
+            class="inputs__text inputs__type inputs__type_weight"
+          >
             <option value="kg" name="weight">kg</option>
             <option value="lb" name="weight">lb</option>
           </select>
@@ -33,9 +36,12 @@
             placeholder="Enter height"
             required
           />
-          <select name="height_type" class="inputs__text inputs__input">
+          <select
+            name="height_type"
+            class="inputs__text inputs__type inputs__type_height"
+          >
             <option value="cm" name="weight">cm</option>
-            <option value="inches" name="weight">inches.feet</option>
+            <option value="inches" name="weight">inches</option>
           </select>
         </div>
         <button class="btn" type="submit">calculate</button>
@@ -43,13 +49,16 @@
 
       <div class="results">
         <div class="circle__main">
-          <div class="wave_1"></div>
-          <div class="wave_2"></div>
-          <div class="wave_3"></div>
+          <div class="wave wave_1"></div>
+          <div class="wave wave_2"></div>
+          <div class="wave wave_3"></div>
         </div>
         <div class="test_result">
-          <h2 class="bmi_result">20</h2>
-          <p class="results__text">Normal</p>
+          <h2 class="bmi_result"></h2>
+          <p class="results__text">
+            Please enter your <br />
+            height and weight
+          </p>
         </div>
       </div>
     </main>
