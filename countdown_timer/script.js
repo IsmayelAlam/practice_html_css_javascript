@@ -33,6 +33,8 @@ btnStart.addEventListener("click", (e) => {
   //   total time calculate
   let totalTime = minute * 60 + second;
 
+  if (totalTime <= 0) return;
+
   display = setInterval(() => {
     if (totalTime <= 0) reset();
 
