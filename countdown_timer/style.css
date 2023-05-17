@@ -1,0 +1,137 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  background-color: rgba(31, 151, 187, 0.2);
+}
+
+.heading {
+  font-size: 5rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.timer {
+  width: max-content;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.inputs {
+  width: 50rem;
+  height: 50rem;
+  padding: 5rem;
+  background-color: rgba(47, 206, 255, 0.507);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5rem;
+  margin-bottom: 5rem;
+  font-size: 7.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  border: 5px solid rgba(102, 51, 153, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+.inputs span {
+  z-index: 5;
+}
+input {
+  width: 20rem;
+  height: 25rem;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  font-size: 15rem;
+  color: whitesmoke;
+  outline: none;
+  z-index: 5;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn {
+  width: 15rem;
+  border: none;
+  border-radius: 2rem;
+  color: whitesmoke;
+  text-align: center;
+  padding: 2rem;
+  font-size: 2rem;
+  outline: none;
+  margin: 0 1rem;
+  text-transform: uppercase;
+
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn_stop {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 0, 0, 0.5),
+    rgba(128, 0, 128, 0.5)
+  );
+}
+.btn_reset {
+  background-image: linear-gradient(
+    to left bottom,
+    rgba(238, 255, 0, 0.5),
+    rgba(0, 128, 64, 0.5)
+  );
+}
+.btn_start {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 208, 0, 0.5),
+    rgba(128, 51, 0, 0.5)
+  );
+}
+
+.wave {
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 40rem;
+  left: -50%;
+  top: -150%;
+  transition: all 0.5s;
+}
+.wave_1 {
+  z-index: 1;
+  background-color: rgba(245, 245, 245, 0.75);
+  animation: rotate 8.75s linear infinite;
+  transform: rotate(150deg);
+}
+.wave_2 {
+  z-index: 2;
+  background-color: rgba(245, 245, 245, 0.5);
+  animation: rotate 8.5s linear infinite;
+  transform: rotate(100deg);
+}
+.wave_3 {
+  z-index: 3;
+  background-color: rgba(245, 245, 245, 0.25);
+  animation: rotate 8.25s linear infinite;
+  transform: rotate(45deg);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
