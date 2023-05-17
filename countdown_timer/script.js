@@ -34,7 +34,7 @@ btnStart.addEventListener("click", (e) => {
   let totalTime = minute * 60 + second;
 
   display = setInterval(() => {
-    if (totalTime <= 0) clearInterval(display);
+    if (totalTime <= 0) reset();
 
     //     set wave position
     let position =
