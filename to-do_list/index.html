@@ -4,9 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="script.js"></script>
+
     <title>To do</title>
   </head>
   <body>
-    <section></section>
+    <h1 class="heading">tasks for today</h1>
+    <main class="section_main">
+      <form action="GET" class="inputs">
+        <input
+          type="text"
+          class="input_task"
+          required
+          placeholder="Add task here"
+        />
+        <button class="btn">Add</button>
+      </form>
+
+      <div class="tasks"></div>
+    </main>
   </body>
 </html>
