@@ -52,7 +52,7 @@ input {
   border: none;
   background-color: transparent;
   font-size: 15rem;
-  color: whitesmoke;
+  color: rgb(30, 50, 65);
   outline: none;
   z-index: 5;
 }
@@ -73,8 +73,9 @@ input::-webkit-inner-spin-button {
   outline: none;
   margin: 0 1rem;
   text-transform: uppercase;
-
+  cursor: pointer;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  font-weight: 600;
 }
 
 .btn_stop {
@@ -103,27 +104,27 @@ input::-webkit-inner-spin-button {
   width: 200%;
   height: 200%;
   position: absolute;
-  border-radius: 40rem;
+  border-radius: 45rem;
   left: -50%;
   top: -150%;
-  transition: all 0.5s;
+  transition: all 1s linear;
 }
 .wave_1 {
   z-index: 1;
-  background-color: rgba(245, 245, 245, 0.75);
-  animation: rotate 8.75s linear infinite;
+  background-color: rgba(245, 245, 245, 0.35);
+  animation: rotate 20.75s linear infinite;
   transform: rotate(150deg);
 }
 .wave_2 {
   z-index: 2;
-  background-color: rgba(245, 245, 245, 0.5);
-  animation: rotate 8.5s linear infinite;
+  background-color: rgba(245, 245, 245, 0.35);
+  animation: rotate 20.5s linear infinite;
   transform: rotate(100deg);
 }
 .wave_3 {
   z-index: 3;
-  background-color: rgba(245, 245, 245, 0.25);
-  animation: rotate 8.25s linear infinite;
+  background-color: rgba(245, 245, 245, 0.35);
+  animation: rotate 20.25s linear infinite;
   transform: rotate(45deg);
 }
 
