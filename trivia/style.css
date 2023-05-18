@@ -1,0 +1,81 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  height: max-content;
+  width: 100vw;
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(240, 237, 82),
+    rgb(228, 153, 42)
+  );
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+section {
+  width: 75%;
+  height: 100%;
+  background-color: rgba(245, 245, 245, 0.9);
+  margin: 0 auto;
+  padding: 5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+}
+
+.heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0;
+}
+.score {
+  text-align: end;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 2rem;
+  text-transform: uppercase;
+}
+
+.question {
+  font-size: 2rem;
+  margin: 5rem auto 0;
+}
+
+.answers {
+  font-size: 1.7rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.answer {
+  width: max-content;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.answer:hover {
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  background-color: whitesmoke;
+  transform: translateY(-0.25rem);
+}
+
+.answer:active {
+  transform: translateY(0.25rem);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 2rem;
+  background-color: whitesmoke;
+}
+
+.right {
+  background-color: rgb(39, 240, 39);
+  border-radius: 2rem;
+}
+.wrong {
+  background-color: rgb(240, 79, 39);
+  border-radius: 2rem;
+}
