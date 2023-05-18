@@ -50,6 +50,7 @@ playerChoice.addEventListener("click", (e) => {
   const pc = Array.from(choices[randomNum].classList);
   const player = Array.from(e.target.closest(".icon").classList);
 
+  //   add border
   e.target.closest(".icon").classList.add("border_1");
   choices[randomNum].classList.add("border_2");
 
