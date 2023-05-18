@@ -58,13 +58,19 @@ playerChoice.addEventListener("click", (e) => {
   if (choices[randomNum] === e.target.closest(".icon")) drawFunction();
 
   //   player win
-  if (player.includes("rock") && pc.includes("scissor")) winFunction();
-  if (player.includes("paper") && pc.includes("rock")) winFunction();
-  if (player.includes("scissor") && pc.includes("paper")) winFunction();
+  if (
+    (player.includes("rock") && pc.includes("scissor")) ||
+    (player.includes("paper") && pc.includes("rock")) ||
+    (player.includes("scissor") && pc.includes("paper"))
+  )
+    winFunction();
   //   pc win
-  if (pc.includes("rock") && player.includes("scissor")) lossFunction();
-  if (pc.includes("paper") && player.includes("rock")) lossFunction();
-  if (pc.includes("scissor") && player.includes("paper")) lossFunction();
+  if (
+    (pc.includes("rock") && player.includes("scissor")) ||
+    (pc.includes("paper") && player.includes("rock")) ||
+    (pc.includes("scissor") && player.includes("paper"))
+  )
+    lossFunction();
 });
 
 // reset
