@@ -19,25 +19,27 @@ body {
 
 .heading {
   text-align: center;
+  text-transform: uppercase;
   font-size: 3rem;
   color: whitesmoke;
 }
 
 .forecasting {
-  margin: 5rem auto;
+  margin: 2.5rem auto;
   width: max-content;
-  background-color: whitesmoke;
+  background-color: rgba(245, 245, 245, 0.5);
   padding: 5rem;
   border-radius: 1rem;
   box-shadow: var(--small_shadow);
 }
 
+/* input */
 .get_weather {
   display: flex;
   align-items: center;
   border-bottom: 0.2rem solid #69d2e7;
-  margin-bottom: 5rem;
-  padding-bottom: 1rem;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 .input_name {
   border: none;
@@ -52,18 +54,82 @@ body {
 .search {
   border: none;
   background-color: transparent;
+  padding: 1.5rem 5rem;
+  background-color: #69d2e7;
+  margin-left: -10.5rem;
+  border-radius: 3rem;
+  box-shadow: var(--small_shadow);
 }
 
 .icon_search {
-  width: 3.2rem;
-  height: 3.2rem;
-  background-color: whitesmoke;
-  fill: rgb(39, 37, 22);
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 50%;
-  box-shadow: var(--small_shadow);
+  width: 3rem;
+  height: 3rem;
+  fill: whitesmoke;
 }
-.icon_search:hover {
+.search:hover {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
+
+/* weather  */
+
+.weather {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #69d2e7;
+  padding-bottom: 4rem;
+}
+.current_temp {
+  grid-column: 1 /-1;
+  text-align: center;
+  font-size: 10rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0 auto 6rem;
+}
+.current_temp span {
+  font-size: 3.2rem;
+}
+/* city_details */
+
+.city_details {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
+  margin: 2rem auto;
+}
+.cityname {
+  grid-row: 1/-1;
+  font-size: 4.8rem;
+  text-align: start;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+  padding-left: 3rem;
+}
+.sun {
+  font-size: 1.6rem;
+}
+/* extra_info */
+.extra_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  border-top: 3px solid #69d2e7;
+  /* margin-top: 3rem; */
+  padding-top: 2rem;
+}
+
+/* utilites */
+.icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  fill: rgb(54, 39, 12);
+}
+.center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
