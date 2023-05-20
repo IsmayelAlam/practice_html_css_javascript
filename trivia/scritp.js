@@ -19,7 +19,7 @@ async function loadQuestions() {
   const question = response
     .map((res, i) => {
       let ans = [];
-      for (let [key, value, i] of Object.entries(res.answers)) {
+      for (let [key, value] of Object.entries(res.answers)) {
         if (!value) continue;
         ans.push(
           `<p class="answer ${key}_correct"><span>${
