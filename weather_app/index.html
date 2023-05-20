@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="heading">Weather</h1>
+    </header>
+    <main class="forecasting">
+      <section class="inputs">
+        <form action="GET" class="get_weather">
+          <input
+            type="text"
+            class="input_name"
+            placeholder="Enter the city name"
+            required
+          /><button class="search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              class="icon_search"
+            >
+              <path
+                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+              />
+            </svg>
+          </button>
+        </form>
+      </section>
+      <section class="weather">
+        <h2 class="current_temp">29.8℃</h2>
+        <p class="feels_like">Feels like 32.5℃</p>
+        <p class="description">Moderate rain</p>
+        <p class="max">max 34.5℃</p>
+        <p class="min">min 27.6℃</p>
+      </section>
+      <section class="city_details">
+        <p class="cityname">Zocca</p>
+        <p class="sunrise">sunrise 5:00</p>
+        <p class="sunset">sunset 5:00</p>
+      </section>
+      <section class="extra_info">
+        <p class="pressure">pressure 1015</p>
+        <p class="humidity">humidity 64</p>
+        <p class="wind">wind speed 0.62m/s</p>
+        <p class="pressure">pressure 1015</p>
+      </section>
+    </main>
+  </body>
+</html>

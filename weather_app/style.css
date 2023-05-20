@@ -1,0 +1,69 @@
+:root {
+  --small_shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-image: linear-gradient(to right bottom, #69d2e7, #e0e4cc);
+}
+
+.heading {
+  text-align: center;
+  font-size: 3rem;
+  color: whitesmoke;
+}
+
+.forecasting {
+  margin: 5rem auto;
+  width: max-content;
+  background-color: whitesmoke;
+  padding: 5rem;
+  border-radius: 1rem;
+  box-shadow: var(--small_shadow);
+}
+
+.get_weather {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.2rem solid #69d2e7;
+  margin-bottom: 5rem;
+  padding-bottom: 1rem;
+}
+.input_name {
+  border: none;
+  width: 50rem;
+  border-radius: 5rem;
+  padding: 2rem;
+  outline: none;
+  font-size: 2rem;
+  box-shadow: var(--small_shadow);
+}
+
+.search {
+  border: none;
+  background-color: transparent;
+}
+
+.icon_search {
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: whitesmoke;
+  fill: rgb(39, 37, 22);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: var(--small_shadow);
+}
+.icon_search:hover {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+}
