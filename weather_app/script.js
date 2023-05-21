@@ -25,7 +25,7 @@ const errorMassage = document.querySelector(".error");
 
 //open weather map api for weather data
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
-const apiKey = "appid=08ffe2af33c25aff75263b1e58d3241c";
+const apiKey = "appid=08ffe2af33c25aff75263b1e5";
 let lat;
 let long;
 let searchCity;
