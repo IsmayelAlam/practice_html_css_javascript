@@ -10,25 +10,27 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Roboto", Geneva, Tahoma, sans-serif;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
   background-image: linear-gradient(to right bottom, #69d2e7, #e0e4cc);
+  user-select: none;
+  color: whitesmoke;
 }
 
 .heading {
   text-align: center;
   text-transform: uppercase;
   font-size: 3rem;
-  color: whitesmoke;
+  margin-bottom: 3rem;
 }
 
 .forecasting {
   margin: 2.5rem auto;
   width: max-content;
-  background-color: rgba(245, 245, 245, 0.5);
-  padding: 5rem;
+  background-color: rgba(100, 100, 100, 0.5);
+  padding: 4rem 6rem;
   border-radius: 1rem;
   box-shadow: var(--small_shadow);
 }
@@ -59,6 +61,7 @@ body {
   margin-left: -10.5rem;
   border-radius: 3rem;
   box-shadow: var(--small_shadow);
+  z-index: 5;
 }
 
 .icon_search {
@@ -79,17 +82,29 @@ body {
   font-size: 1.6rem;
   border-bottom: 2px solid #69d2e7;
   padding-bottom: 4rem;
+  position: relative;
 }
 .current_temp {
   grid-column: 1 /-1;
-  text-align: center;
   font-size: 10rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
-  margin: 0 auto 6rem;
+  margin: 5rem auto;
+  z-index: 5;
 }
 .current_temp span {
   font-size: 3.2rem;
+}
+
+.weather_icon {
+  position: absolute;
+  top: -8.5rem;
+  right: 0.5rem;
+  z-index: 0;
+  height: 25rem;
+  width: 25rem;
+  /* filter: brightness(50%); */
+  user-select: none;
 }
 /* city_details */
 
@@ -122,11 +137,11 @@ body {
   padding-top: 2rem;
 }
 
-/* utilites */
+/* utilities */
 .icon {
   height: 2.4rem;
   width: 2.4rem;
-  fill: rgb(54, 39, 12);
+  fill: white;
 }
 .center {
   display: flex;
