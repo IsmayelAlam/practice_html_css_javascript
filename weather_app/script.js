@@ -40,21 +40,25 @@ async function renderWeather(event) {
   try {
     // defaults
     event.preventDefault();
-    errorMassage.classList.add("hidden");
-    weather.classList.remove("hidden");
-    cityDetails.classList.remove("hidden");
-    extraInfo.classList.remove("hidden");
-    //   get city name
+    // get city name
     searchCity = inputName.value;
     const coordinates = `lat=${lat.toFixed(2)}&lon=${long.toFixed(2)}`;
 
-    //     get weather data from api
+    if (!searchCity && !long && !lat) throw new Error();
+
+    // get weather data from api
     const data = await fetch(
       `${apiUrl}appid=${theKey}&${
         inputName.value ? `q=${searchCity}` : coordinates
       }&units=metric`
     );
     const response = await data.json();
+
+    // show sections
+    errorMassage.classList.add("hidden");
+    weather.classList.remove("hidden");
+    cityDetails.classList.remove("hidden");
+    extraInfo.classList.remove("hidden");
 
     // render the weather data
     weatherIcon.src = `https://openweathermap.org/img/wn/${response.weather[0].icon}@4x.png`;
@@ -75,7 +79,7 @@ async function renderWeather(event) {
     humidity.innerHTML = `humidity ${response.main.humidity}%`;
     wind.innerHTML = `wind-speed ${response.wind.speed} m/s`;
 
-    //     clear the input
+    // clear the input
     inputName.value = "";
   } catch (err) {
     errorMassage.classList.remove("hidden");
