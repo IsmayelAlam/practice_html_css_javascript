@@ -1,0 +1,120 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  background-color: gray;
+}
+
+.heading {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 2rem;
+  background-color: rgba(245, 245, 245, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.heading h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.control {
+  width: 25rem;
+  text-align: left;
+}
+
+.images_pairs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 25rem;
+}
+
+.image_box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 0 10rem;
+  margin-top: 5rem;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 1rem;
+  width: 15.36rem;
+  height: 19.2rem;
+  border: 0.5rem solid transparent;
+  transition: all 0.75s;
+}
+
+.img {
+  width: 100%;
+  border-radius: 0.75rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.75s;
+  backface-visibility: hidden;
+  perspective: 15rem;
+  perspective-origin: center;
+  overflow: hidden;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.imgFront {
+  transform: rotateY(180deg);
+  z-index: 5;
+}
+.imgBack {
+  z-index: 10;
+}
+
+.rotate .imgBack {
+  transform: rotateY(180deg);
+  z-index: 5;
+}
+.rotate .imgFront {
+  transform: rotateY(0deg);
+  z-index: 10;
+}
+
+.right_border {
+  animation: pulsingRight 1s ease-in-out 0.75s;
+}
+.wrong_border {
+  animation: pulsingWrong 0.5s ease-in-out infinite 0.75s;
+}
+
+@keyframes pulsingRight {
+  0% {
+    border: 0.5rem solid rgba(0, 128, 0, 0.5);
+    box-shadow: 0 0 0.5rem greenyellow;
+  }
+  100% {
+    border: 0.5rem solid transparent;
+  }
+}
+@keyframes pulsingWrong {
+  0% {
+    border: 0.5rem solid rgba(128, 0, 0, 0.5);
+    box-shadow: 0 0 0.5rem red;
+  }
+  100% {
+    border: 0.5rem solid transparent;
+  }
+}
