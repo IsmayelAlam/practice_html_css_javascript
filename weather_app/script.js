@@ -25,7 +25,7 @@ const errorMassage = document.querySelector(".error");
 
 //open weather map api for weather data
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
-const apiKey = "08ffe2af33c25aff75263b1e58d3241c";
+const theKey = "08ffe2af33c25aff75263b1e58d3241c";
 let lat;
 let long;
 let searchCity;
@@ -50,7 +50,7 @@ async function renderWeather(event) {
 
     //     get weather data from api
     const data = await fetch(
-      `${apiUrl}appid=${apiKey}&${
+      `${apiUrl}appid=${theKey}&${
         inputName.value ? `q=${searchCity}` : coordinates
       }&units=metric`
     );
