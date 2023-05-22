@@ -29,6 +29,16 @@ body {
   text-align: left;
 }
 
+.control button {
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5rem;
+  font-weight: 600;
+  margin: 0 1rem;
+  outline: none;
+}
+
 .images_pairs {
   display: flex;
   align-items: center;
@@ -38,6 +48,15 @@ body {
   text-transform: uppercase;
   font-weight: 600;
   width: 25rem;
+}
+
+.images_pairs button {
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 600;
+  outline: none;
 }
 
 .image_box {
@@ -117,4 +136,31 @@ body {
   100% {
     border: 0.5rem solid transparent;
   }
+}
+
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+}
+.win {
+  font-size: 10rem;
+  width: max-content;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: white;
+  font-weight: 600;
+  margin: 25vh auto;
+  padding: 10rem;
+  border-radius: 50rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+.hidden {
+  display: none;
 }
