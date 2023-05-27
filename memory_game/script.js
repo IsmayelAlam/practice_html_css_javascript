@@ -70,7 +70,7 @@ btnIncrease.addEventListener("click", () => {
 
 // Decrease the images pairs
 btnDecrease.addEventListener("click", () => {
-  if (imageNumber <= 1) return;
+  if (imageNumber <= 4) return;
   imagesPairs.innerHTML = --imageNumber;
   renderImages();
 });
