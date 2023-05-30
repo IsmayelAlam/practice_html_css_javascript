@@ -1,0 +1,18 @@
+@font-face {
+  font-family: Digital-7;
+  src: url("./Digital7-rg1mL.ttf");
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
