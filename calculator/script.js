@@ -25,31 +25,6 @@ function calculate(event) {
       }
       break;
 
-    case "+":
-      curInput = input2;
-      operator.innerHTML = button;
-      break;
-
-    case "-":
-      curInput = input2;
-      operator.innerHTML = button;
-      break;
-
-    case "*":
-      curInput = input2;
-      operator.innerHTML = button;
-      break;
-
-    case "/":
-      curInput = input2;
-      operator.innerHTML = button;
-      break;
-
-    case "%":
-      curInput = input2;
-      operator.innerHTML = button;
-      break;
-
     case "√":
       operator.innerHTML = button;
       result.innerHTML = Math.sqrt(+input1.innerHTML).toFixed(8);
@@ -57,6 +32,8 @@ function calculate(event) {
 
     case "C":
       decimal = true;
+      curInput = input1;
+      operatorType = "";
       input1.innerHTML = "";
       input2.innerHTML = "";
       operator.innerHTML = "";
@@ -64,13 +41,44 @@ function calculate(event) {
       break;
 
     case "=":
-      result.innerHTML = +input1.innerHTML;
-      break;
+      if (!input2.innerHTML) return;
+      if (operatorType === "+")
+        result.innerHTML = +input1.innerHTML + +input2.innerHTML;
+      if (operatorType === "-")
+        result.innerHTML = +input1.innerHTML - +input2.innerHTML;
+      if (operatorType === "*")
+        result.innerHTML = (+input1.innerHTML * +input2.innerHTML).toFixed(5);
+      if (operatorType === "/")
+        result.innerHTML = (+input1.innerHTML / +input2.innerHTML).toFixed(5);
+      if (operatorType === "%")
+        result.innerHTML = (
+          (+input1.innerHTML / +input2.innerHTML) *
+          100
+        ).toFixed(4);
+      curInput = "";
+      return;
 
     default:
-      if (input1.innerHTML.length < 15 && regExpNumber.test(+button))
+      if (
+        button === "+" ||
+        button === "-" ||
+        button === "*" ||
+        button === "/" ||
+        button === "%"
+      ) {
+        if (curInput.innerHTML) {
+          curInput = input2;
+          operatorType = button;
+          operator.innerHTML = button;
+        }
+        break;
+      }
+      if (curInput.innerHTML.length < 15 && regExpNumber.test(+button)) {
         curInput.innerHTML += button;
+      }
   }
 }
 
 calculator.addEventListener("click", calculate);
+
+window.addEventListener("keydown", calculate);
