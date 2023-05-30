@@ -11,11 +11,58 @@ const result = document.querySelector(".result");
 let decimal = true;
 let curInput = input1;
 let operatorType;
+const regExpNumber = /[0-9]/;
+
+function inputCheck(event) {
+  let button;
+  if (event.type === "keydown") button = event.key;
+  if (event.type === "click") button = event.target.innerHTML;
+
+  const regExpSymbols = /[-+=/*%C.√\n\r]/i;
+
+  if (
+    !regExpNumber.test(+button) &&
+    !regExpSymbols.test(button) &&
+    button !== "Enter" &&
+    button !== "Backspace"
+  )
+    return null;
+  return button;
+}
+
+function reset() {
+  decimal = true;
+  curInput = input1;
+  operatorType = "";
+  input1.innerHTML = "";
+  input2.innerHTML = "";
+  operator.innerHTML = "";
+  result.innerHTML = "";
+  return;
+}
+
+function showResult() {
+  if (!input2.innerHTML) return;
+  if (operatorType === "+")
+    result.innerHTML = +input1.innerHTML + +input2.innerHTML;
+  if (operatorType === "-")
+    result.innerHTML = +input1.innerHTML - +input2.innerHTML;
+  if (operatorType === "*")
+    result.innerHTML = (+input1.innerHTML * +input2.innerHTML).toFixed(5);
+  if (operatorType === "/")
+    result.innerHTML = (+input1.innerHTML / +input2.innerHTML).toFixed(5);
+  if (operatorType === "%")
+    result.innerHTML = ((+input1.innerHTML / +input2.innerHTML) * 100).toFixed(
+      4
+    );
+  curInput = "";
+  return;
+}
 
 function calculate(event) {
-  if (!event.target.closest(".numbers")) return;
-  const button = event.target.innerHTML;
-  const regExpNumber = /[0-9]/;
+  let button = inputCheck(event);
+
+  if (!button) return;
 
   switch (button) {
     case ".":
@@ -28,34 +75,24 @@ function calculate(event) {
     case "√":
       operator.innerHTML = button;
       result.innerHTML = Math.sqrt(+input1.innerHTML).toFixed(8);
+      curInput = "";
+      operatorType = "";
       break;
 
     case "C":
-      decimal = true;
-      curInput = input1;
-      operatorType = "";
-      input1.innerHTML = "";
-      input2.innerHTML = "";
-      operator.innerHTML = "";
-      result.innerHTML = "";
-      break;
+      reset();
+      return;
+
+    case "Backspace":
+      reset();
+      return;
 
     case "=":
-      if (!input2.innerHTML) return;
-      if (operatorType === "+")
-        result.innerHTML = +input1.innerHTML + +input2.innerHTML;
-      if (operatorType === "-")
-        result.innerHTML = +input1.innerHTML - +input2.innerHTML;
-      if (operatorType === "*")
-        result.innerHTML = (+input1.innerHTML * +input2.innerHTML).toFixed(5);
-      if (operatorType === "/")
-        result.innerHTML = (+input1.innerHTML / +input2.innerHTML).toFixed(5);
-      if (operatorType === "%")
-        result.innerHTML = (
-          (+input1.innerHTML / +input2.innerHTML) *
-          100
-        ).toFixed(4);
-      curInput = "";
+      showResult();
+      return;
+
+    case "Enter":
+      showResult();
       return;
 
     default:
@@ -80,5 +117,4 @@ function calculate(event) {
 }
 
 calculator.addEventListener("click", calculate);
-
 window.addEventListener("keydown", calculate);
