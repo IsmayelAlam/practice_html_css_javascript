@@ -45,12 +45,22 @@ function showResult() {
   if (!input2.innerHTML) return;
   if (operatorType === "+")
     result.innerHTML = +input1.innerHTML + +input2.innerHTML;
+
   if (operatorType === "-")
     result.innerHTML = +input1.innerHTML - +input2.innerHTML;
-  if (operatorType === "*")
-    result.innerHTML = (+input1.innerHTML * +input2.innerHTML).toFixed(5);
-  if (operatorType === "/")
-    result.innerHTML = (+input1.innerHTML / +input2.innerHTML).toFixed(5);
+
+  if (operatorType === "*") {
+    const multiply = +input1.innerHTML * +input2.innerHTML;
+    const decimal = `${multiply}`.split(".");
+    result.innerHTML = decimal[1]?.length > 1 ? multiply.toFixed(8) : multiply;
+  }
+
+  if (operatorType === "/") {
+    const divide = +input1.innerHTML / +input2.innerHTML;
+    const decimal = `${divide}`.split(".");
+    result.innerHTML = decimal[1]?.length > 1 ? divide.toFixed(8) : divide;
+  }
+
   if (operatorType === "%")
     result.innerHTML = ((+input1.innerHTML / +input2.innerHTML) * 100).toFixed(
       4
@@ -101,13 +111,12 @@ function calculate(event) {
         button === "-" ||
         button === "*" ||
         button === "/" ||
-        button === "%"
+        (button === "%" && curInput.innerHTML)
       ) {
-        if (curInput.innerHTML) {
-          curInput = input2;
-          operatorType = button;
-          operator.innerHTML = button;
-        }
+        curInput = input2;
+        operatorType = button;
+        decimal = true;
+        operator.innerHTML = button;
         break;
       }
       if (curInput.innerHTML.length < 15 && regExpNumber.test(+button)) {
