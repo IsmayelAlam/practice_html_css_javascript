@@ -6,6 +6,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #336666;
+  overflow: hidden;
 }
 
 * {
@@ -48,8 +49,8 @@ body {
   --x: 50;
   --y: 50;
 
-  height: 2vw;
-  width: 2vw;
+  height: 1.5vw;
+  width: 1.5vw;
   background-color: white;
   border-radius: 50%;
   position: absolute;
