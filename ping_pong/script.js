@@ -1,6 +1,9 @@
 import Ball from "./Ball.js";
+import Paddle from "./Paddle.js";
 
 const ball = new Ball(document.querySelector(".ball"));
+const paddlePlayer = new Paddle(document.querySelector(".right"));
+const paddleAI = new Paddle(document.querySelector(".left"));
 
 let lastTime;
 

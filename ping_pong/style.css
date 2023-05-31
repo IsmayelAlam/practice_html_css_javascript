@@ -54,8 +54,8 @@ body {
   background-color: white;
   border-radius: 50%;
   position: absolute;
-  top: calc(var(--x) * 1vh);
-  left: calc(var(--y) * 1vw);
+  top: calc(var(--y) * 1vh);
+  left: calc(var(--x) * 1vw);
   transform: translate(-50%, -50%);
 }
 
