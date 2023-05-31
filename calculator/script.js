@@ -84,7 +84,7 @@ function calculate(event) {
 
     case "√":
       operator.innerHTML = button;
-      result.innerHTML = Math.sqrt(+input1.innerHTML).toFixed(8);
+      result.innerHTML = Math.sqrt(+input1.innerHTML || 1).toFixed(4);
       curInput = "";
       operatorType = "";
       break;
@@ -111,13 +111,15 @@ function calculate(event) {
         button === "-" ||
         button === "*" ||
         button === "/" ||
-        (button === "%" && curInput.innerHTML)
+        button === "%"
       ) {
-        curInput = input2;
-        operatorType = button;
-        decimal = true;
-        operator.innerHTML = button;
-        break;
+        if (curInput.innerHTML) {
+          curInput = input2;
+          operatorType = button;
+          decimal = true;
+          operator.innerHTML = button;
+          break;
+        }
       }
       if (curInput.innerHTML.length < 15 && regExpNumber.test(+button)) {
         curInput.innerHTML += button;
