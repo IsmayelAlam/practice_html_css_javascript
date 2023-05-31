@@ -70,8 +70,8 @@ body {
 }
 
 .paddle.right {
-  left: 1.5vw;
+  right: 1.5vw;
 }
 .paddle.left {
-  right: 1.5vw;
+  left: 1.5vw;
 }

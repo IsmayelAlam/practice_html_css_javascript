@@ -45,7 +45,7 @@ export default class Ball {
     this.velocity += IncreaseVelocity * delta;
     const rect = this.rect();
 
-    if (rect.bottom > window.innerHeight || rect.top < 0) {
+    if (rect.bottom >= window.innerHeight || rect.top <= 0) {
       this.direction.y *= -1;
     }
 
