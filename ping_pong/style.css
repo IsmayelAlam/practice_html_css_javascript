@@ -1,7 +1,3 @@
-:root {
-  --position: 50;
-}
-
 html {
   font-size: 62.5%;
 }
@@ -63,6 +59,8 @@ body {
 }
 
 .paddle {
+  --position: 50;
+
   height: 12.5vh;
   width: 1vw;
   background-color: white;
