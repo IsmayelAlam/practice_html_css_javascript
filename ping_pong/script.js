@@ -6,6 +6,7 @@ const paddlePlayer = new Paddle(document.querySelector(".right"));
 const paddleAI = new Paddle(document.querySelector(".left"));
 const scorePlayer = document.querySelector(".player_score1");
 const scoreAI = document.querySelector(".player_score2");
+const startGame = document.querySelector(".start");
 
 let lastTime;
 
@@ -20,6 +21,7 @@ function update(time) {
   lastTime = time;
   window.requestAnimationFrame(update);
 }
+console.log(paddleAI.rect());
 
 function isLose() {
   const rect = ball.rect();
@@ -38,7 +40,11 @@ function handelLose() {
 }
 
 document.addEventListener("mousemove", (e) => {
+  if (!lastTime) return;
   paddlePlayer.position = (e.y / window.innerHeight) * 100;
 });
 
-window.requestAnimationFrame(update);
+startGame.addEventListener("click", (event) => {
+  startGame.classList.add("hidden");
+  window.requestAnimationFrame(update);
+});

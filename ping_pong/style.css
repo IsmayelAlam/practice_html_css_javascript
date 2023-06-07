@@ -7,6 +7,9 @@ body {
   margin: 0;
   background-color: #336666;
   overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
 * {
@@ -34,6 +37,31 @@ body {
   font-size: 4.8rem;
   padding: 0 2rem;
   font-weight: bold;
+}
+
+.start {
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+
+  background-color: transparent;
+  backdrop-filter: blur(2.5px);
+}
+
+.icon {
+  fill: white;
+  width: 10rem;
+  height: 10rem;
 }
 
 .divider {
@@ -74,4 +102,8 @@ body {
 }
 .paddle.left {
   left: 1.5vw;
+}
+
+.hidden {
+  display: none;
 }

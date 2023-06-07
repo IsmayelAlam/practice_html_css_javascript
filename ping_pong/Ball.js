@@ -1,4 +1,4 @@
-const InitVelocity = 0.02;
+const InitVelocity = 0.01;
 const IncreaseVelocity = 0.00001;
 
 export default class Ball {
@@ -31,7 +31,9 @@ export default class Ball {
 
     while (
       Math.abs(this.direction.x) <= 0.2 ||
-      Math.abs(this.direction.x) >= 0.9
+      Math.abs(this.direction.x) >= 0.9 ||
+      Math.abs(this.direction.y) <= 0.2 ||
+      Math.abs(this.direction.y) >= 0.9
     ) {
       const heading = randomNun(0, 2 * Math.PI);
       this.direction = { x: Math.cos(heading), y: Math.sin(heading) };
