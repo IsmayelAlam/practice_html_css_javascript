@@ -27,28 +27,56 @@ const c = canvas.getContext("2d");
 // c.arc(window.innerWidth / 2, window.innerHeight / 2, 90, 0, Math.PI * 2, false);
 // c.stroke();
 
-let x = window.innerWidth / 2;
-let y = window.innerHeight / 2;
+class Circles {
+  constructor(x, y, dx, dy, radius) {
+    this.x = x;
+    this.y = y;
+    this.dx = dx;
+    this.dy = dy;
+    this.radius = radius;
+  }
 
-let dx = 4;
-let dy = 4;
-let radius = 50;
+  draw() {
+    c.beginPath();
+    c.strokeStyle = "#ff9f5d";
+    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    c.stroke();
+    c.fillStyle = "#af45ff20";
+    c.fill();
+  }
+  animate() {
+    if (this.x + this.radius > innerWidth || this.x - this.radius < 0)
+      this.dx = -this.dx;
+    if (this.y + this.radius > innerHeight || this.y - this.radius < 0)
+      this.dy = -this.dy;
 
-function animate() {
-  requestAnimationFrame(animate);
-
-  c.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-  c.beginPath();
-  c.strokeStyle = "#ff4f5d";
-  c.arc(x, y, radius, 0, Math.PI * 2, false);
-  c.stroke();
-
-  if (x + radius > innerWidth || x - radius < 0) dx = -dx;
-  if (y + radius > innerHeight || y - radius < 0) dy = -dy;
-
-  x += dx;
-  y += dy;
+    this.x += this.dx;
+    this.y += this.dy;
+    this.draw();
+  }
 }
 
-animate();
+const circleArr = [];
+
+for (let i = 0; i < 10; i++) {
+  const radius = Math.random() * 75 + 10;
+  let x = Math.random() * (innerWidth - radius * 2) + radius;
+  let y = Math.random() * (innerHeight - radius * 2) + radius;
+
+  let dx = Math.random() - 0.5 * 10;
+  let dy = Math.random() - 0.5 * 10;
+
+  const circle = new Circles(x, y, dx, dy, radius);
+
+  circleArr.push(circle);
+}
+
+function animateBalls() {
+  requestAnimationFrame(animateBalls);
+
+  c.clearRect(0, 0, innerWidth, innerHeight);
+
+  circleArr.forEach((circle) => circle.animate());
+}
+
+animateBalls();
