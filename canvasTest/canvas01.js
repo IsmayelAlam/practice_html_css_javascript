@@ -27,6 +27,18 @@ const c = canvas.getContext("2d");
 // c.arc(window.innerWidth / 2, window.innerHeight / 2, 90, 0, Math.PI * 2, false);
 // c.stroke();
 
+let mouse = {
+  x: undefined,
+  y: undefined,
+};
+
+const colors = ["#8ecae6", "#219ebc", "#023047", "#ffb703", "#fb8500"];
+
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+});
+
 class Circles {
   constructor(x, y, dx, dy, radius) {
     this.x = x;
@@ -34,14 +46,16 @@ class Circles {
     this.dx = dx;
     this.dy = dy;
     this.radius = radius;
+    this.minRadius = radius;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
   }
 
   draw() {
     c.beginPath();
-    c.strokeStyle = "#ff9f5d";
+    c.strokeStyle = "white";
     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
     c.stroke();
-    c.fillStyle = "#af45ff20";
+    c.fillStyle = this.color;
     c.fill();
   }
   animate() {
@@ -52,19 +66,31 @@ class Circles {
 
     this.x += this.dx;
     this.y += this.dy;
+
+    if (
+      mouse.x - this.x < 75 &&
+      mouse.x - this.x > -75 &&
+      mouse.y - this.y < 75 &&
+      mouse.y - this.y > -75
+    ) {
+      if (this.radius < 50) this.radius += 1;
+    } else {
+      if (this.radius > this.minRadius) this.radius -= 1;
+    }
+
     this.draw();
   }
 }
 
 const circleArr = [];
 
-for (let i = 0; i < 10; i++) {
-  const radius = Math.random() * 75 + 10;
+for (let i = 0; i < 500; i++) {
+  const radius = Math.random() * 5 + 2;
   let x = Math.random() * (innerWidth - radius * 2) + radius;
   let y = Math.random() * (innerHeight - radius * 2) + radius;
 
-  let dx = Math.random() - 0.5 * 10;
-  let dy = Math.random() - 0.5 * 10;
+  let dx = Math.random() - 0.5 * 2.5;
+  let dy = Math.random() - 0.5 * 2.5;
 
   const circle = new Circles(x, y, dx, dy, radius);
 
