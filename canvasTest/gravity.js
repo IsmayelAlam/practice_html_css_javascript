@@ -1,5 +1,5 @@
 const canvas = document.querySelector(".canvas");
-const colors = ["#8ecae6", "#219ebc", "#023047", "#ffb703", "#fb8500"];
+const colors = ["#619b8a", "#a1c181", "#fcca46", "#fe7f2d", "#233d4d"];
 const gravity = 1;
 
 canvas.width = window.innerWidth;
@@ -30,9 +30,7 @@ class Balls {
   update() {
     if (
       this.y + this.radius + this.dy > canvas.height ||
-      this.y < this.radius ||
-      this.x + this.radius + this.dx > canvas.width ||
-      this.x < this.radius
+      this.y < this.radius
     ) {
       if (this.dx > 0.0025) this.dy = -this.dy * (0.9 - this.radius * 0.005);
       this.dx = -this.dx;
@@ -69,5 +67,4 @@ function animateBalls() {
 }
 animateBalls();
 
-// window.addEventListener("click", init);
-window.addEventListener("mousedown", (e) => init(e));
+window.addEventListener("click", init);
