@@ -38,6 +38,10 @@ window.addEventListener("mousemove", (e) => {
   mouse.x = e.x;
   mouse.y = e.y;
 });
+window.addEventListener("mouseout", (e) => {
+  mouse.x = undefined;
+  mouse.y = undefined;
+});
 
 class Circles {
   constructor(x, y, dx, dy, radius) {
@@ -68,12 +72,12 @@ class Circles {
     this.y += this.dy;
 
     if (
-      mouse.x - this.x < 75 &&
-      mouse.x - this.x > -75 &&
-      mouse.y - this.y < 75 &&
-      mouse.y - this.y > -75
+      mouse.x - this.x < 35 &&
+      mouse.x - this.x > -35 &&
+      mouse.y - this.y < 35 &&
+      mouse.y - this.y > -35
     ) {
-      if (this.radius < 50) this.radius += 1;
+      if (this.radius < 25) this.radius += 5;
     } else {
       if (this.radius > this.minRadius) this.radius -= 1;
     }
@@ -84,13 +88,14 @@ class Circles {
 
 const circleArr = [];
 
-for (let i = 0; i < 500; i++) {
-  const radius = Math.random() * 5 + 2;
+for (let i = 0; i < 10000; i++) {
+  // const radius = Math.random() * 5 + 2;
+  const radius = 0;
   let x = Math.random() * (innerWidth - radius * 2) + radius;
   let y = Math.random() * (innerHeight - radius * 2) + radius;
 
-  let dx = Math.random() - 0.5 * 2.5;
-  let dy = Math.random() - 0.5 * 2.5;
+  let dx = (Math.random() - 0.5) * 2.5;
+  let dy = (Math.random() - 0.5) * 2.5;
 
   const circle = new Circles(x, y, dx, dy, radius);
 
