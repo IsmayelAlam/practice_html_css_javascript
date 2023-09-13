@@ -1,6 +1,5 @@
 const canvas = document.querySelector(".canvas");
 const colors = ["#619b8a", "#a1c181", "#fcca46", "#fe7f2d", "#233d4d"];
-const gravity = 1;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -23,28 +22,12 @@ class Balls {
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
     ctx.fillStyle = this.color;
     ctx.fill();
-    // ctx.strokeStyle = "white";
-    // ctx.stroke();
   }
 
   update() {
-    if (
-      this.y + this.radius + this.dy > canvas.height ||
-      this.y < this.radius
-    ) {
-      if (this.dx > 0.0025) this.dy = -this.dy * (0.95 - this.radius * 0.005);
-      this.dx = -this.dx;
-    } else {
-      this.dy += this.radius * 0.05 + gravity;
-    }
-
-    this.x += this.dx;
-    this.y += this.dy;
     this.draw();
   }
 }
-
-let ballArr = [];
 
 function init(e) {
   const radius = Math.random() * 25 + 10;
@@ -66,5 +49,3 @@ function animateBalls() {
   ballArr.forEach((ball) => ball.update());
 }
 animateBalls();
-
-window.addEventListener("click", init);
