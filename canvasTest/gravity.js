@@ -30,12 +30,18 @@ class Balls {
   update() {
     if (
       this.y + this.radius + this.dy > canvas.height ||
-      this.y < this.radius
+      this.y - this.radius <= 0
     ) {
-      if (this.dx > 0.0025) this.dy = -this.dy * (0.95 - this.radius * 0.005);
-      this.dx = -this.dx;
+      this.dy = -this.dy * (0.95 - this.radius * 0.005);
     } else {
       this.dy += this.radius * 0.05 + gravity;
+    }
+    if (
+      this.x + this.radius + this.dx > innerWidth ||
+      this.x - this.radius <= 0 ||
+      this.dy < 0.025
+    ) {
+      this.dx = -this.dx * (0.95 - this.radius * 0.005);
     }
 
     this.x += this.dx;

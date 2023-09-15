@@ -48,10 +48,16 @@ class Particles {
         resolveCollision(this, particlesArr[i]);
     }
 
+    if (getDistance(this.x, mouse.x, this.y, mouse.y) + this.radius < 100) {
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+
     this.x += this.dx;
     this.y += this.dy;
   }
 }
+
 function getDistance(x1, x2, y1, y2) {
   const xDist = x1 - x2;
   const yDist = y1 - y2;
@@ -68,7 +74,7 @@ function isColliding(particle1, particle2) {
 }
 
 function init() {
-  const radius = Math.random() * 25 + 100;
+  const radius = Math.random() * 15 + 10;
   let x = Math.random() * (innerWidth - radius * 2) + radius;
   let y = Math.random() * (innerHeight - radius * 2) + radius;
   let dx = (Math.random() - 0.5) * 5;
@@ -79,7 +85,7 @@ function init() {
 
 let particlesArr = [];
 
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 500; i++) {
   let particle = init();
   if (i !== 0) {
     for (let j = 0; j < particlesArr.length; j++) {
@@ -108,8 +114,6 @@ function resolveCollision(particle, otherParticle) {
 
   const xDist = otherParticle.x - particle.x;
   const yDist = otherParticle.y - particle.y;
-
-  console.log(xVelocityDiff, xDist, yVelocityDiff, yDist);
 
   // Prevent accidental overlap of particles
   if (xVelocityDiff * xDist + yVelocityDiff * yDist >= 0) {
