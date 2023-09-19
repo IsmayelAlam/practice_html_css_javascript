@@ -1,5 +1,5 @@
 const canvas = document.querySelector(".canvas");
-const colors = ["#619b8a", "#a1c181", "#fcca46", "#fe7f2d", "#233d4d"];
+const colors = ["#caf0f8", "#90e0ef", "#00b4d8", "#0077b6", "#03045e"];
 const mouse = { x: undefined, y: undefined };
 
 window.addEventListener("mousemove", (e) => {
@@ -24,7 +24,7 @@ class Particles {
     this.radius = radius;
     this.radians = radians;
     this.lastPos = { x, y };
-    this.distance = Math.random() * 150 + 75;
+    this.distance = Math.random() * (innerWidth + innerHeight) + 50;
     this.color = colors[Math.floor(Math.random() * colors.length)];
   }
 
@@ -34,6 +34,7 @@ class Particles {
     ctx.lineTo(this.x, this.y);
     ctx.strokeStyle = this.color;
     ctx.lineWidth = this.radius;
+    ctx.lineCap = "round";
     ctx.stroke();
   }
 
@@ -41,10 +42,8 @@ class Particles {
     const lastPtn = { x: this.x, y: this.y };
     this.radians += this.v;
 
-    this.lastPos.x += (mouse.x - this.lastPos.x) * 0.05 || 0;
-    this.lastPos.y += (mouse.y - this.lastPos.y) * 0.05 || 0;
-
-    console.log(this.lastPos);
+    this.lastPos.x += (mouse.x - this.lastPos.x) * 0.025 || 0;
+    this.lastPos.y += (mouse.y - this.lastPos.y) * 0.025 || 0;
 
     this.x = Math.cos(this.radians) * this.distance + this.lastPos.x;
     this.y = Math.sin(this.radians) * this.distance + this.lastPos.y;
@@ -55,9 +54,9 @@ class Particles {
 
 function init() {
   const radius = Math.random() * 5 + 2;
-  let x = window.innerWidth / 2;
-  let y = window.innerHeight / 2;
-  let v = Math.random() * 0.05 + 0.01;
+  let x = innerWidth / 2;
+  let y = innerHeight / 2;
+  let v = Math.random() * 0.0025 + 0.001;
   let radians = Math.random() * Math.PI * 2;
 
   return new Particles(x, y, v, radius, radians);
@@ -65,7 +64,7 @@ function init() {
 
 const particleArr = [];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 5000; i++) {
   particleArr.push(init());
 }
 
@@ -73,6 +72,11 @@ function animateCircle() {
   requestAnimationFrame(animateCircle);
   ctx.fillStyle = "rgba(0,0,0,0.25";
   ctx.fillRect(0, 0, innerWidth, innerHeight);
+
+  ctx.beginPath();
+  ctx.arc(mouse.x, mouse.y, 10, 0, Math.PI * 2, false);
+  ctx.fillStyle = "gold";
+  ctx.fill();
 
   particleArr.forEach((dot) => dot.update());
 }
