@@ -34,8 +34,8 @@ class Particles {
 
   update(x, y) {
     this.draw();
-    this.x = x + this.distance;
-    this.y = y + this.distance;
+    this.x = x;
+    this.y = y;
   }
 }
 
@@ -136,8 +136,8 @@ function noise(x, y = 0, z = 0) {
 }
 
 function init(distance) {
-  let x = 0;
-  let y = 0;
+  let x = 100;
+  let y = 100;
 
   return new Particles(x, y, distance);
 }
@@ -146,7 +146,7 @@ let time = 1;
 
 const particleArr = [];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 50; i++) {
   particleArr.push(init(i));
 }
 
@@ -159,8 +159,12 @@ function animateCircle() {
   let y = noise(time * 0.00025 + 25) * canvas.height;
 
   particleArr.forEach((dot) => {
-    dot.x = noise(time * 0.005) * canvas.width;
-    dot.y = noise(time * 0.005 + 25) * canvas.height;
+    dot.x =
+      noise(time * 0.005) * canvas.width +
+      dot.distance * ((Math.random() - 0.5) * 2);
+    dot.y =
+      noise(time * 0.005 + 25) * canvas.height +
+      dot.distance * ((Math.random() - 0.5) * 2);
     dot.update(x, y);
   });
   time++;
