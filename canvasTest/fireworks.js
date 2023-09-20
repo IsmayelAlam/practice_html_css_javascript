@@ -1,6 +1,17 @@
 const canvas = document.querySelector(".canvas");
-const colors = ["#619b8a", "#a1c181", "#fcca46", "#fe7f2d"];
-const gravity = 0.01;
+const colors = [
+  "#FCFFA4",
+  "#F7D13D",
+  "#FB9B06",
+  "#ED6925",
+  "#CF4446",
+  "#A52C60",
+  "#781C6D",
+  "#4A0C6B",
+  "#1B0C41",
+  "#000004",
+];
+const gravity = 0.1;
 const friction = 0.99;
 
 canvas.width = window.innerWidth;
@@ -9,50 +20,51 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 
 class Particles {
-  constructor(x, y, vel, radius, color) {
+  constructor(x, y, vel, radius) {
     this.x = x;
     this.y = y;
     this.vel = vel;
-    this.alpha = 1;
+    this.life = 0;
     this.radius = radius;
-    this.color = color;
+    this.color = colors[Math.floor(this.life)];
   }
 
-  draw() {
+  draw(color) {
     ctx.beginPath();
-    ctx.globalAlpha = this.alpha;
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    ctx.fillStyle = this.color;
+    ctx.fillStyle = color;
     ctx.fill();
   }
 
   update() {
-    this.draw();
+    if (this.life < colors.length) this.life += Math.random() * 0.05;
     this.vel.x *= friction;
     this.vel.y *= friction;
-    this.alpha -= 0.005;
     this.vel.y += gravity;
     this.x += this.vel.x;
     this.y += this.vel.y;
+    this.draw(colors[Math.floor(this.life)]);
   }
 }
 
 let fireworksArr = [];
 
 function init(e) {
-  const radius = 2;
   let x = e.x;
   let y = e.y;
-  let color = colors[Math.floor(Math.random() * colors.length)];
-  const particleCount = 400;
+
+  const power = Math.random() * 10 + 7.5;
+  //   const color = colors[Math.floor(life)];
+  const particleCount = 1000;
   const angleIncrement = (Math.PI * 2) / particleCount;
 
   for (let i = 0; i < particleCount; i++) {
+    const radius = Math.random() * 2 + 1;
     let vel = {
-      x: Math.cos(angleIncrement * i) * Math.random() * 5,
-      y: Math.sin(angleIncrement * i) * Math.random() * 5,
+      x: Math.cos(angleIncrement * i) * Math.random() * power,
+      y: Math.sin(angleIncrement * i) * Math.random() * power,
     };
-    const ball = new Particles(x, y, vel, radius, color);
+    const ball = new Particles(x, y, vel, radius);
 
     fireworksArr.push(ball);
   }
@@ -61,10 +73,16 @@ function init(e) {
 function animateBalls() {
   requestAnimationFrame(animateBalls);
 
-  ctx.fillStyle = "rgba(0,0,0,0.05";
+  ctx.fillStyle = "rgba(0,0,0,0.1)";
   ctx.fillRect(0, 0, innerWidth, innerHeight);
 
-  fireworksArr.forEach((ball) => ball.update());
+  fireworksArr.forEach((ball, i) => {
+    if (ball.x > canvas.width || ball.x < 0 || ball.y > canvas.height) {
+      fireworksArr.splice(i, 1);
+    } else {
+      ball.update();
+    }
+  });
 }
 animateBalls();
 
