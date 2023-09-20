@@ -24,7 +24,7 @@ class Particles {
     this.radius = radius;
     this.radians = radians;
     this.lastPos = { x, y };
-    this.distance = Math.random() * (innerWidth + innerHeight) + 50;
+    this.distance = Math.random() * (innerWidth + innerHeight) + 25;
     this.color = colors[Math.floor(Math.random() * colors.length)];
   }
 
@@ -70,7 +70,7 @@ for (let i = 0; i < 5000; i++) {
 
 function animateCircle() {
   requestAnimationFrame(animateCircle);
-  ctx.fillStyle = "rgba(0,0,0,0.25";
+  ctx.fillStyle = "rgba(0,0,0,0.1";
   ctx.fillRect(0, 0, innerWidth, innerHeight);
 
   ctx.beginPath();
