@@ -1,17 +1,19 @@
 const canvas = document.querySelector(".canvas");
 const colors = [
-  "#FCFFA4",
+  "#Ffffff",
   "#F7D13D",
   "#FB9B06",
   "#ED6925",
   "#CF4446",
+  "#D00000",
   "#A52C60",
   "#781C6D",
   "#4A0C6B",
   "#1B0C41",
   "#000004",
+  "#00000400",
 ];
-const gravity = 0.1;
+const gravity = 0.25;
 const friction = 0.99;
 
 canvas.width = window.innerWidth;
@@ -37,7 +39,7 @@ class Particles {
   }
 
   update() {
-    if (this.life < colors.length) this.life += Math.random() * 0.05;
+    if (this.life < colors.length) this.life += Math.random() * 0.5;
     this.vel.x *= friction;
     this.vel.y *= friction;
     this.vel.y += gravity;
@@ -53,9 +55,8 @@ function init(e) {
   let x = e.x;
   let y = e.y;
 
-  const power = Math.random() * 10 + 7.5;
-  //   const color = colors[Math.floor(life)];
-  const particleCount = 1000;
+  const power = Math.random() * 10 + 10;
+  const particleCount = 1500;
   const angleIncrement = (Math.PI * 2) / particleCount;
 
   for (let i = 0; i < particleCount; i++) {
