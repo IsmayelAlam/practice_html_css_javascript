@@ -8,21 +8,21 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 
 addEventListener("mousemove", (e) => {
-  center.x += (e.x - center.x) * 0.025;
-  center.y += (e.y - center.y) * 0.025;
+  center.x = e.x;
+  center.y = e.y;
 });
-addEventListener("mouseout", (e) => {
+addEventListener("mouseout", () => {
   center.x = innerWidth / 2;
   center.y = innerHeight / 2;
 });
 
 class Dots {
-  constructor(x, y, distance, radius, color) {
+  constructor(x, y, radius, vel, color) {
     this.x = x;
     this.y = y;
-    this.distance = distance;
     this.radius = radius;
-    this.color = color;
+    this.vel = vel;
+    this.ttl = 1000;
   }
 
   draw() {
@@ -35,33 +35,47 @@ class Dots {
 
   update() {
     this.draw();
+
+    this.x += this.vel.x;
+    this.y += this.vel.y;
+    this.ttl--;
+    this.color = `hsl(${255 % (this.ttl / 4)},50%,50%)`;
   }
 }
 
 let ballArr = [];
 
 function init() {
-  const size = 5000;
+  const size = 30;
   const radius = 5;
+  const radians = (Math.PI * 2) / 30;
 
   for (let i = 0; i < size; i++) {
-    let distance = i / 5;
-    const x = center.x + distance * Math.cos(Math.PI);
-    const y = center.y + distance * Math.sin(Math.PI);
-    let color = `hsl(${i % size},50%,50%)`;
+    const x = center.x;
+    const y = center.y;
+    const vel = {
+      x: Math.cos(i * radians) * 2,
+      y: Math.sin(i * radians) * 2,
+    };
 
-    const ball = new Dots(x, y, distance, radius, color);
+    const ball = new Dots(x, y, radius, vel);
 
     ballArr.push(ball);
   }
 }
-init();
+setInterval(() => init(), 250);
 
 function animateBalls() {
   requestAnimationFrame(animateBalls);
-  ctx.fillStyle = "rgba(0,0,0,0.75)";
+  ctx.fillStyle = "rgba(0,0,0,0.15)";
   ctx.fillRect(0, 0, innerWidth, innerHeight);
 
-  ballArr.forEach((ball) => ball.update());
+  ballArr.forEach((ball, i) => {
+    if (ball.ttl <= 0) {
+      ballArr.splice(i, 1);
+    } else {
+      ball.update();
+    }
+  });
 }
 animateBalls();
