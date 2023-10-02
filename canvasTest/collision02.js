@@ -37,11 +37,6 @@ class Particles {
   update() {
     this.draw();
 
-    if (this.x - this.radius <= 0 || this.x + this.radius > innerWidth)
-      this.dx = -this.dx;
-    if (this.y - this.radius <= 0 || this.y + this.radius > innerHeight)
-      this.dy = -this.dy;
-
     for (let i = 0; i < particlesArr.length; i++) {
       if (this === particlesArr[i]) continue;
       if (isColliding(this, particlesArr[i]))
@@ -85,7 +80,7 @@ function init() {
 
 let particlesArr = [];
 
-for (let i = 0; i < 500; i++) {
+for (let i = 0; i < 250; i++) {
   let particle = init();
   if (i !== 0) {
     for (let j = 0; j < particlesArr.length; j++) {
@@ -157,8 +152,6 @@ function resolveCollision(particle, otherParticle) {
 function animateBalls() {
   requestAnimationFrame(animateBalls);
   ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-  particlesArr.forEach((particle) => particle.update());
 }
 
 init();
